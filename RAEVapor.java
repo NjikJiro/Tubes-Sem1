@@ -138,7 +138,7 @@ class Store{
 
         if (stokBarang[index] >= jumlah) {
 
-            System.out.println("Total yang harus dibayar adalah : Rp." + formatter.format(totalHarga));
+            System.out.println("Total yang harus dibayar adalah : Rp. " + formatter.format(totalHarga));
             System.out.print("Masukkan uang pembayaran: ");
             int uangDiberikan = input.nextInt();
 
@@ -147,7 +147,7 @@ class Store{
                 stokBarang[index] -= jumlah;
                 int kembalian = uangDiberikan - totalHarga;
 
-                String transaksi = "Membeli " + jumlah + " " + namaBarang[index] + ", Total: Rp." + formatter.format(totalHarga) + ", Uang: Rp." + formatter.format(uangDiberikan) + ", Kembalian: Rp." + formatter.format(kembalian);
+                String transaksi = "Membeli " + jumlah + " " + namaBarang[index] + ", Total: Rp. " + formatter.format(totalHarga) + ", Uang: Rp. " + formatter.format(uangDiberikan) + ", Kembalian: Rp. " + formatter.format(kembalian);
                 riwayatTransaksi[jumlahTransaksi++] = transaksi;
 
                 // Bukti pembelian / struk
@@ -155,9 +155,9 @@ class Store{
                 System.out.println("======= STRUK TRANSAKSI =======");
                 System.out.println("Barang      : " + namaBarang[index]);
                 System.out.println("Jumlah      : " + jumlah);
-                System.out.println("Total Harga : Rp." + formatter.format(totalHarga));
-                System.out.println("Uang Dibayar: Rp." + formatter.format(uangDiberikan));
-                System.out.println("Kembalian   : Rp." + formatter.format(kembalian));
+                System.out.println("Total Harga : Rp. " + formatter.format(totalHarga));
+                System.out.println("Uang Dibayar: Rp. " + formatter.format(uangDiberikan));
+                System.out.println("Kembalian   : Rp. " + formatter.format(kembalian));
                 System.out.println("===============================");
 
                 return true;
