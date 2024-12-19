@@ -6,11 +6,15 @@ public class RAEVapor{
 
         String[] namaKami = {"Adyadma Renjiro", "Putra Erlang Duawa", "Alif Akbar Ramadhan"};
         String[] nimKami = {"103082400013", "103082400023", "103082400035"};
-        System.out.println("-------------------------------------");
-        System.out.printf("%-24s %-15s%n", "Nama", "NIM");
-        System.out.println("-------------------------------------");
+        System.out.println("------------------------------------------");
+        System.out.printf("%-4s %-24s %-15s%n", "No.", "Nama", "NIM");
+        System.out.println("------------------------------------------");
         for (int i = 0; i < namaKami.length; i++) {
-            System.out.printf("%-24s %-15s%n", namaKami[i], nimKami[i]);
+            System.out.printf("%-4s %-24s %-15s%n", 
+                (i + 1),
+                namaKami[i],
+                nimKami[i]
+            );
         }
 
         Scanner input = new Scanner(System.in);
@@ -43,7 +47,7 @@ public class RAEVapor{
         }
         while(isRunning){
             System.out.println("\nMenu Utama");
-            System.out.println("1. Membeli Baranng");
+            System.out.println("1. Membeli Barang");
             System.out.println("2. Melihat Riwayat Transaksi");
             System.out.println("3. Log Out");
 
@@ -111,17 +115,23 @@ class Store{
     int[] stokBarang = {30, 30, 30, 15, 15, 15};
 
     // Jumlah Riwayat Transaksi
-    String[] riwayatTransaksi = new String[35];
+    String[][] riwayatTransaksi = new String[35][5];
     int jumlahTransaksi = 0;
 
     // Method Menampilkan Barang
     public void tampilkanBarang(){
         System.out.println("\nDaftar Barang");
-        System.out.println("-----------------------------------");
+        System.out.println("-----------------------------------------------------------");
         System.out.printf("%-5s %-30s %-15s %-6s%n", "No", "Nama", "Harga(Rp.)", "Stok");
         for (int i = 0; i < namaBarang.length; i++ ) {
-            System.out.printf("%-5s %-30s %-15s %-6s%n", (i+1), namaBarang[i], formatter.format(hargaBarang[i]), stokBarang[i]);
+            System.out.printf("%-5s %-30s %-15s %-6s%n",
+                (i+1),
+                namaBarang[i],
+                formatter.format(hargaBarang[i]),
+                stokBarang[i]
+            );
         }
+        System.out.println("-----------------------------------------------------------");
     }
 
     // Method Beli Barangg
@@ -147,8 +157,17 @@ class Store{
                 stokBarang[index] -= jumlah;
                 int kembalian = uangDiberikan - totalHarga;
 
-                String transaksi = "Membeli " + jumlah + " " + namaBarang[index] + ", Total: Rp. " + formatter.format(totalHarga) + ", Uang: Rp. " + formatter.format(uangDiberikan) + ", Kembalian: Rp. " + formatter.format(kembalian);
-                riwayatTransaksi[jumlahTransaksi++] = transaksi;
+                // String transaksi = "Membeli " + jumlah + " " + namaBarang[index] + ", Total: Rp. " + formatter.format(totalHarga) + ", Uang: Rp. " + formatter.format(uangDiberikan) + ", Kembalian: Rp. " + formatter.format(kembalian);
+                // riwayatTransaksi[jumlahTransaksi++] = transaksi;
+
+                riwayatTransaksi[jumlahTransaksi][0] = namaBarang[index];
+                riwayatTransaksi[jumlahTransaksi][1] = String.valueOf(jumlah);
+                riwayatTransaksi[jumlahTransaksi][2] = "Rp. " + formatter.format(totalHarga);
+                riwayatTransaksi[jumlahTransaksi][3] = "Rp. " + formatter.format(uangDiberikan);
+                riwayatTransaksi[jumlahTransaksi][4] = "Rp. " + formatter.format(kembalian);
+                jumlahTransaksi++;
+
+
 
                 // Bukti pembelian / struk
                 System.out.println("\nTransaksi Berhasil!");
@@ -179,11 +198,21 @@ class Store{
             System.out.println("Belum ada riwayat transaksi.");
             System.out.println("---------------------------");
         } else {
-            System.out.println("\n====== Riwayat Transaksi ======");
-            for(int i = 0; i < jumlahTransaksi; i++){
-                System.out.println((i+1) + ". " + riwayatTransaksi[i]);
+            System.out.println("\n========= Riwayat Transaksi =========");
+            System.out.printf("%-5s %-34s %-10s %-15s %-15s %-15s%n", 
+                "No", "Nama Barang", "Jumlah", "Total Harga", "Uang Dibayar", "Kembalian");
+            System.out.println("----------------------------------------------------------------------------------------------");
+            for (int i = 0; i < jumlahTransaksi; i++) {
+                System.out.printf("%-5d %-34s %-10s %-15s %-15s %-15s%n", 
+                    (i + 1), 
+                    riwayatTransaksi[i][0], 
+                    riwayatTransaksi[i][1],
+                    riwayatTransaksi[i][2],
+                    riwayatTransaksi[i][3],
+                    riwayatTransaksi[i][4]
+                );
             }
-            System.out.println("-------------------------------\n");
+            System.out.println("---------------------------------------------------------------------------------------------\n");
         }
     }
 }
