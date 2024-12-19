@@ -4,10 +4,22 @@ import java.util.Scanner;
 public class RAEVapor{
     public static void main(String[] args){
 
-        String[] namaKami = {"Adyadma Renjiro", "Putra Erlang Duawa", "Alif Akbar Ramadhan"};
-        String[] nimKami = {"103082400013", "103082400023", "103082400035"};
+        String[] namaKami = {
+            "Adyadma Renjiro", 
+            "Putra Erlang Duawa", 
+            "Alif Akbar Ramadhan"
+        };
+        String[] nimKami = {
+            "103082400013", 
+            "103082400023", 
+            "103082400035"
+        };
         System.out.println("------------------------------------------");
-        System.out.printf("%-4s %-24s %-15s%n", "No.", "Nama", "NIM");
+        System.out.printf("%-4s %-24s %-15s%n", 
+            "No.", 
+            "Nama",
+            "NIM"
+        );
         System.out.println("------------------------------------------");
         for (int i = 0; i < namaKami.length; i++) {
             System.out.printf("%-4s %-24s %-15s%n", 
@@ -87,8 +99,18 @@ public class RAEVapor{
 class User{
 
     // Atribut User
-    static String[] usernames = {"admin", "NjikJiro", "Eru", "Akbar"};
-    static String[] passwords = {"admin", "powermode", "Eru", "Akbar"};
+    static String[] usernames = {
+        "admin", 
+        "NjikJiro", 
+        "Eru", 
+        "Akbar"
+    };
+    static String[] passwords = {
+        "admin", 
+        "powermode",
+        "Eru", 
+        "Akbar"
+    };
 
     // Method Login User
     public static boolean login(String inputUsername,  String inputPassword) {
@@ -107,9 +129,30 @@ class Store{
     DecimalFormat formatter = new DecimalFormat("#,###");
 
     // Atribut Store
-    String[] namaBarang = {"liquid Freebase Creamy", "liquid Freebase Fruity", "liquid Saltnic Fruity & Creamy", "Device AIO", "Device MOD", "Device POD"};
-    int[] hargaBarang = {140000, 130000, 110000, 650000, 500000, 300000};
-    int[] stokBarang = {30, 30, 30, 15, 15, 15};
+    String[] namaBarang = {
+        "liquid Freebase Creamy", 
+        "liquid Freebase Fruity", 
+        "liquid Saltnic Fruity & Creamy", 
+        "Device AIO", 
+        "Device MOD", 
+        "Device POD"
+    };
+    int[] hargaBarang = {
+        140000, 
+        130000, 
+        110000, 
+        650000, 
+        500000, 
+        300000
+    };
+    int[] stokBarang = {
+        30,
+        30, 
+        30, 
+        15,
+        15, 
+        15
+    };
 
     // Jumlah Riwayat Transaksi
     String[][] riwayatTransaksi = new String[35][5];
@@ -119,7 +162,12 @@ class Store{
     public void tampilkanBarang(){
         System.out.println("\nDaftar Barang");
         System.out.println("-----------------------------------------------------------");
-        System.out.printf("%-5s %-30s %-15s %-6s%n", "No", "Nama", "Harga(Rp.)", "Stok");
+        System.out.printf("%-5s %-30s %-15s %-6s%n",
+            "No", 
+            "Nama", 
+            "Harga(Rp.)", 
+            "Stok"
+        );
         for (int i = 0; i < namaBarang.length; i++ ) {
             System.out.printf("%-5s %-30s %-15s %-6s%n",
                 (i+1),
@@ -193,7 +241,13 @@ class Store{
         } else {
             System.out.println("\n========= Riwayat Transaksi =========");
             System.out.printf("%-5s %-34s %-10s %-15s %-15s %-15s%n", 
-                "No", "Nama Barang", "Jumlah", "Total Harga", "Uang Dibayar", "Kembalian");
+                "No", 
+                "Nama Barang",
+                "Jumlah",
+                "Total Harga", 
+                "Uang Dibayar", 
+                "Kembalian"
+            );
             System.out.println("----------------------------------------------------------------------------------------------");
             for (int i = 0; i < jumlahTransaksi; i++) {
                 System.out.printf("%-5d %-34s %-10s %-15s %-15s %-15s%n", 
