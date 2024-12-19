@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class RAEVapor{
     public static void main(String[] args){
@@ -111,7 +111,7 @@ class Store{
     int[] stokBarang = {30, 30, 30, 15, 15, 15};
 
     // Jumlah Riwayat Transaksi
-    String[] riwayatTransaksi = new String[100];
+    String[] riwayatTransaksi = new String[35];
     int jumlahTransaksi = 0;
 
     // Method Menampilkan Barang
