@@ -54,10 +54,10 @@ public class RAEVapor{
             System.out.print("Pilih menu: ");
             int menu = input.nextInt();
 
-            switch (menu) {
+            switch(menu) {
 
                 // Membeli Barang
-                case 1:
+                case 1 -> {
                     store.tampilkanBarang();
 
                     System.out.print("Pilih nomor barang: ");
@@ -66,21 +66,18 @@ public class RAEVapor{
                     int jumlah = input.nextInt();
 
                     store.beliBarang(pilihan, jumlah, input);
-                break;
+                }
 
                 // Menampilkan Riwayat Transaksi
-                case 2:
-                    store.tampilkanRiwayatTransaksi();
-                break;
+                case 2 -> store.tampilkanRiwayatTransaksi();
 
                 // Keluar Aplikasi
-                case 3:
+                case 3 -> {
                     System.out.println("Anda berhasil keluar! Terima Kasih :)");
                     isRunning = false;
-                break;
+                }
 
-                default:
-                    System.out.println("Menu tidak valid! Coba lagi!");
+                default -> System.out.println("Menu tidak valid! Coba lagi!");
             }
         }
     }
@@ -157,17 +154,13 @@ class Store{
                 stokBarang[index] -= jumlah;
                 int kembalian = uangDiberikan - totalHarga;
 
-                // String transaksi = "Membeli " + jumlah + " " + namaBarang[index] + ", Total: Rp. " + formatter.format(totalHarga) + ", Uang: Rp. " + formatter.format(uangDiberikan) + ", Kembalian: Rp. " + formatter.format(kembalian);
-                // riwayatTransaksi[jumlahTransaksi++] = transaksi;
-
+                // Memasukkan ke dalam riwayat transaksi
                 riwayatTransaksi[jumlahTransaksi][0] = namaBarang[index];
                 riwayatTransaksi[jumlahTransaksi][1] = String.valueOf(jumlah);
                 riwayatTransaksi[jumlahTransaksi][2] = "Rp. " + formatter.format(totalHarga);
                 riwayatTransaksi[jumlahTransaksi][3] = "Rp. " + formatter.format(uangDiberikan);
                 riwayatTransaksi[jumlahTransaksi][4] = "Rp. " + formatter.format(kembalian);
                 jumlahTransaksi++;
-
-
 
                 // Bukti pembelian / struk
                 System.out.println("\nTransaksi Berhasil!");
