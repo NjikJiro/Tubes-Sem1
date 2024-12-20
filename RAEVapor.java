@@ -179,7 +179,7 @@ class Store{
         System.out.println("-----------------------------------------------------------");
     }
 
-    // Method Beli Barangg
+    // Method Beli Barang
     public boolean beliBarang(int pilihan, int jumlah, Scanner input){
 
         // Cek apakah barang yang dipilih itu ada
@@ -212,13 +212,13 @@ class Store{
 
                 // Bukti pembelian / struk
                 System.out.println("\nTransaksi Berhasil!");
-                System.out.println("======= STRUK TRANSAKSI =======");
-                System.out.println("Barang      : " + namaBarang[index]);
-                System.out.println("Jumlah      : " + jumlah);
-                System.out.println("Total Harga : Rp. " + formatter.format(totalHarga));
-                System.out.println("Uang Dibayar: Rp. " + formatter.format(uangDiberikan));
-                System.out.println("Kembalian   : Rp. " + formatter.format(kembalian));
-                System.out.println("===============================");
+                System.out.println("=========== STRUK TRANSAKSI ===========");
+                System.out.println("Barang        : " + namaBarang[index]);
+                System.out.println("Jumlah        : " + jumlah);
+                System.out.println("Total Harga   : Rp. " + formatter.format(totalHarga));
+                System.out.println("Uang Dibayar  : Rp. " + formatter.format(uangDiberikan));
+                System.out.println("Kembalian     : Rp. " + formatter.format(kembalian));
+                System.out.println("=======================================");
 
                 return true;
             } else {
